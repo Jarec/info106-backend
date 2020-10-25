@@ -36,3 +36,12 @@ functions:
       - httpApi:
           path: /institutions
           method: get
+
+resources:
+  Resources:
+    BackendUrlSsmParam:
+      Type: AWS::SSM::Parameter
+      Properties:
+        Name: "/backend/url"
+        Type: String
+        Value: !Join ["", [ "https://", !Ref HttpApi, ".execute-api.${self:provider.region}.", !Ref AWS::URLSuffix ]]
