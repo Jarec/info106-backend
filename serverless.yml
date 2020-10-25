@@ -2,8 +2,9 @@ service: info106-backend
 frameworkVersion: '2'
 
 plugins:
-  - serverless-webpack
+  - serverless-pseudo-parameters
   - serverless-scriptable-plugin
+  - serverless-webpack
 
 package:
   individually: true
@@ -44,4 +45,4 @@ resources:
       Properties:
         Name: "/backend/url"
         Type: String
-        Value: !Join ["", [ "https://", !Ref HttpApi, ".execute-api.${self:provider.region}.", !Ref AWS::URLSuffix ]]
+        Value: "https://#{HttpApi}.execute-api.#{AWS::Region}.#{AWS::URLSuffix}"
