@@ -1,6 +1,7 @@
 {
   "name": "info106-backend",
   "version": "1.0.0",
+  "private": true,
   "description": "Backend for info106.cz",
   "main": "index.js",
   "scripts": {
