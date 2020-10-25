@@ -1,0 +1,38 @@
+service: info106-backend
+frameworkVersion: '2'
+
+plugins:
+  - serverless-webpack
+  - serverless-scriptable-plugin
+
+package:
+  individually: true
+
+custom:
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: true
+    packager: 'npm'
+  scriptHooks:
+    before:package:initialize: npm run generate-index
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage, 'dev'} # Set the default stage used. Default is dev
+  region: ${opt:region, 'eu-central-1'} # Overwrite the default region used. Default is eu-central-1
+  logRetentionInDays: 30
+  httpApi:
+    cors: true
+  logs:
+    httpApi: true
+
+functions:
+  search:
+    handler: src/institutions/search.handle
+    memorySize: 256
+    timeout: 3
+    events:
+      - httpApi:
+          path: /institutions
+          method: get

@@ -1,0 +1,37 @@
+{
+  "name": "info106-backend",
+  "version": "1.0.0",
+  "description": "Backend for info106.cz",
+  "main": "index.js",
+  "scripts": {
+    "generate-index": "node src/institutions/index/generate.js",
+    "eslint": "npx eslint src"
+  },
+  "author": "Jaroslav Crhonek",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Jarec/info106-backend.git"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "axios": "0.21.0",
+    "@babel/core": "7.12.3",
+    "@babel/preset-env": "7.12.1",
+    "babel-eslint": "10.1.0",
+    "babel-loader": "8.1.0",
+    "eslint": "7.12.0",
+    "eslint-config-prettier": "6.14.0",
+    "eslint-plugin-prettier": "3.1.4",
+    "prettier": "2.1.2",
+    "serverless": "2.8.0",
+    "serverless-scriptable-plugin": "^1.0.5",
+    "serverless-webpack": "5.3.5",
+    "xml2js": "0.4.23",
+    "webpack": "4.44.2",
+    "webpack-node-externals": "2.5.2"
+  },
+  "dependencies": {
+    "minisearch": "3.0.1",
+    "remove-accents": "0.4.2"
+  }
+}
